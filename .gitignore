@@ -1,0 +1,27 @@
+# Entorno Virtual
+venv/
+env/
+p4-asis/
+
+# Variables de Entorno (CRÍTICO: evita subir tus API Keys)
+.env
+
+# Base de Datos Vectorial
+chroma_db/
+__pycache__/
+
+# Archivos de sistema
+.DS_Store
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Archivos temporales de Streamlit
+.streamlit/
+
+# Logs
+*.log
+
+# PDFs grandes
+# data/*.pdf

@@ -1,0 +1,27 @@
+name: p4-asis
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # Core Python
+  - python=3.10
+  - pip
+
+  # Interfaz y Utilidades
+  - streamlit
+  - pypdf
+  - python-dotenv
+  - tiktoken
+  
+  # Motor Vectorial y ML
+  - chromadb             # Incluye las dependencias HNSWLib precompiladas
+  - faiss-cpu           # Librería de Facebook optimizada
+  - sentence-transformers # Modelos de embeddings locales
+
+  # Ecosistema LangChain
+  - langchain
+  - langchain-community
+  - langchain-openai
+  - langchain-chroma
+  - langchain-huggingface
+  - langsmith
