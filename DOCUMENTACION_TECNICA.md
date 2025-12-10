@@ -1,10 +1,10 @@
 # Asistente Inteligente de Mantenimiento Industrial
 ## Documentación Técnica - Proyecto 4
 
-**Autor:** Byron Vincent Blatch Rodríguez  
-**Curso:** Especialización en Big Data e IA
-**Asignatura:** Modelos de Inteligencia Artificial
-**Fecha:** 9 de diciembre de 2025  
+**Autor:** Byron Vincent Blatch Rodríguez   
+**Curso:** Especialización en Big Data e IA   
+**Asignatura:** Modelos de Inteligencia Artificial   
+**Fecha:** 9 de diciembre de 2025   
 **Repositorio:** https://github.com/Vincent0675/asistente-mantenimiento-ia
 
 ---
@@ -44,13 +44,14 @@ El sistema utiliza **embeddings** para convertir texto en representaciones vecto
 2. **División en chunks:** El texto se fragmenta en segmentos de 1000 caracteres con solapamiento de 200 caracteres usando `RecursiveCharacterTextSplitter`
 3. **Generación de embeddings:** Cada chunk se convierte en un vector de **768 dimensiones** mediante el modelo `sentence-transformers/all-mpnet-base-v2`
 
-**Ejemplo técnico:**
-
+**Ejemplo:**
+```
 Texto: "La calidad máxima de grabación de la cámara es 4K"
-
-↓
-
+                        
+                        ↓
+                        
 Vector: [0.023, -0.156, 0.089, ..., 0.234] (768 números)
+```
 
 
 Estos vectores representan el "significado" del texto en un espacio matemático donde textos similares están cercanos entre sí.
@@ -130,38 +131,7 @@ En pruebas funcionales:
 
 ### 4.1 Componentes Principales
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                   USUARIO (Streamlit)                   │
-│      "¿Cómo instalar el sensor de movimiento AJAX?"     │
-└───────────────────────────┬─────────────────────────────┘
-                            │
-                            ▼
-┌─────────────────────────────────────────────────────────┐
-│               AGENTE (Qwen3-Next-80B)                   │
-│      Analiza intención → Decide qué herramienta usar    │
-└──────┬──────────────────────────────────────┬───────────┘
-       │                                      │
- Pregunta técnica                       Acción/Cálculo
-       ▼                                      ▼
-┌──────────────────┐       ┌─────────────────────┐
-│   MÓDULO RAG     │       │     HERRAMIENTAS    │
-│                  │       │                     │
-│  1. ChromaDB     │       │  - crear_reporte()  │
-│  2. Embeddings   │       │  - calcular_banda() │
-│  3. Top-3 chunks │       │                     │
-│  4. LLM genera   │       │                     │
-│     respuesta    │       │                     │
-└──────────────────┘       └─────────────────────┘
-    │                                      │
-    └──────────────┬───────────────────────┘
-                   │
-                   ▼
-            ┌──────────────┐
-            │  RESPUESTA   │
-            │  al usuario  │
-            └──────────────┘
-```
+![Mermaid Flujo](/images/Diagrama%20de%20Flujo%20Asistente%20Tecnico.png)
 
 ### 4.2 Flujo de Datos
 
@@ -173,10 +143,6 @@ Manual PDF → PyPDFLoader → RecursiveTextSplitter → HuggingFaceEmbeddings �
 **Fase 2: Consulta (Online)**
 
 Pregunta Usuario → Embedding → ChromaDB búsqueda → Top-3 chunks → Qwen3 + Prompt → Respuesta
-
-**Diagrama de Flujo**
-
-![Mermaid Flujo](/images/Diagrama%20de%20Flujo%20Asistente%20Tecnico.png)
 
 ---
 
