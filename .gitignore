@@ -3,7 +3,7 @@ venv/
 env/
 p4-asis/
 
-# Variables de Entorno (CRÍTICO: evita subir tus API Keys)
+# Variables de Entorno
 .env
 
 # Base de Datos Vectorial
