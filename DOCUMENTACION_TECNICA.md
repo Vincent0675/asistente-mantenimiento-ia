@@ -250,15 +250,25 @@ LLM_CONTEXT_LENGTH = 262144 # 262K tokens (capacidad de Qwen3)
 
 ### 7.1 Pruebas Funcionales Exitosas
 
-#### Test 1: Consulta RAG
-**Input:** "¿Cuál es la máxima calidad de la cámara AJAX BulletCam HL?"  
-**Output:** Información detallada de la calidad de la cámara, con detalles de usos y adecuaciones extraidos del manual.  
+### Test 1: Consulta RAG
+**Input:** 
+```
+"¿Cuál es la máxima calidad de la cámara AJAX BulletCam HL?"
+```
+
+**Output:** 
+```
+La máxima calidad de resolución de la cámara AJAX BulletCam HL es de **8 MP (8 megapíxeles)**, con una lente fija de 4 mm. Esta resolución permite una captura de imagen detallada y es adecuada para aplicaciones de vigilancia que requieren alta definición y reconocimiento facial o de matrículas a distancias moderadas.
+```
 **Herramienta usada:** `consultar_manual_tecnico`  
 **Tiempo de respuesta:** 9.38 segundos
 **LangSmith Log:** https://eu.smith.langchain.com/public/a0a5c724-0f23-4e7f-8321-c600366879f2/r
 
-#### Test 2: Generación Autónoma de Reporte
-**Input:** "Reporto el funcionamiento ineficiente del Hub 2 Plus que se encuentra en la sala de control del Hospital de Puerto Real. Se reinicia constantemente y la alimentación parece estar OK. Prioridad urgente."
+### Test 2: Generación Autónoma de Reporte
+**Input:**
+```
+"Reporto el funcionamiento ineficiente del Hub 2 Plus que se encuentra en la sala de control del Hospital de Puerto Real. Se reinicia constantemente y la alimentación parece estar OK. Prioridad urgente."
+```
 **Output:** 
 
 ```
@@ -279,13 +289,18 @@ Se notificará cuando el técnico inicie la intervención.
 **Tiempo de respuesta:** 4.51 segundos   
 **LangSmith Log:** https://eu.smith.langchain.com/public/a0d89867-e41c-4815-b1f9-85cfd7b30e22/r
 
-#### Test 3: Cálculo Técnico
-**Input:** "Revisión para Instalación de CCTV en Hall del Hotel Santa María.
+### Test 3: Cálculo Técnico
+**Input:**
+```
+"Revisión para Instalación de CCTV en Hall del Hotel Santa María.
 
 Cámaras a instalar: 3 BulletCam HL a máxima resolución y 1 PTZ HikVision Videograbadora: HikVision DS-7204HTHI-K1
 
-¿Qué banda ancha se recomienda para esta instalación?"   
-**Output:** "Para la instalación de CCTV en el Hall del Hotel Santa María, con 3 cámaras AJAX BulletCam HL en resolución 4K (8 MP) a 25 FPS y 1 cámara PTZ HikVision en 1080p a 30 FPS, se recomienda lo siguiente:   
+¿Qué banda ancha se recomienda para esta instalación?"
+```
+**Output:** 
+```
+"Para la instalación de CCTV en el Hall del Hotel Santa María, con 3 cámaras AJAX BulletCam HL en resolución 4K (8 MP) a 25 FPS y 1 cámara PTZ HikVision en 1080p a 30 FPS, se recomienda lo siguiente:   
 
 **🔹 Ancho de banda total requerido:**
 
@@ -305,7 +320,8 @@ Cámaras a instalar: 3 BulletCam HL a máxima resolución y 1 PTZ HikVision Vide
     Para grabación 24/7, se requiere aproximadamente 22.4 TB/mes de almacenamiento (20.2 TB de las 4K + 2.2 TB de la PTZ).
 
 **✅ Conclusión:**
-Se recomienda un ancho de banda mínimo de 65 Mbps en la red de CCTV, con infraestructura de red certificada y almacenamiento adecuado para garantizar fluidez y fiabilidad en la grabación."  
+Se recomienda un ancho de banda mínimo de 65 Mbps en la red de CCTV, con infraestructura de red certificada y almacenamiento adecuado para garantizar fluidez y fiabilidad en la grabación." 
+```
 
 **Herramienta usada:** `calcular_ancho_banda_cctv`  
 **Tiempo de respuesta:** 6.93 segundos   
