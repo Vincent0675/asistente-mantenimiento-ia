@@ -10,7 +10,7 @@ Asistente conversacional para técnicos de seguridad electrónica, capaz de cons
     Consulta semántica sobre una colección de manuales PDF de sistemas de alarma, CCTV y otros dispositivos de seguridad electrónica, usando embeddings y ChromaDB.
 
 - **Agente con herramientas (tools):**  
-El LLM decide cuándo:
+El LLM decide cuándo:   
         - Buscar en los manuales (`consultar_manual_tecnico`)   
         - Crear un reporte de incidencia (`crear_reporte_mantenimiento`)   
         - Calcular el ancho de banda necesario para CCTV IP (`calcular_ancho_banda_cctv`)   

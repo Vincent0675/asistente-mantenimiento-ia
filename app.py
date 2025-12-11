@@ -32,7 +32,7 @@ st.set_page_config(page_title="Asistente de Mantenimiento", page_icon="🏭", la
 @tool
 def consultar_manual_tecnico(pregunta: str) -> str:
     """
-    Usa esta herramienta para buscar información técnica en el manual PDF.
+    Usa esta herramienta para buscar información técnica en el manual PDF tanto en inglés como en español.
     Útil para especificaciones, procedimientos y dudas sobre el equipo.
     """
     embeddings = HuggingFaceEmbeddings(
@@ -136,9 +136,9 @@ def inicializar_agente():
 Tu objetivo es ayudar a técnicos de seguridad electrónica con problemas técnicos tanto en instalaciones como en fallos y errores de configuración.
 
 HERRAMIENTAS DISPONIBLES:
-- consultar_manual_tecnico: ÚSALA siempre que pregunten datos técnicos del manual.
+- consultar_manual_tecnico: ÚSALA siempre que pregunten datos técnicos de algún dispositivo del que tengas el manual.
 - crear_reporte_mantenimiento: ÚSALA cuando quieran reportar fallas o averías.
-- calcular_potencia_hidraulica: ÚSALA para cálculos con caudal y presión.
+- calcular_potencia_hidraulica: ÚSALA para cálculos con resolución y cantidad de cámaras.
 
 INSTRUCCIONES:
 1. Si no sabes la respuesta, busca primero en el manual.
